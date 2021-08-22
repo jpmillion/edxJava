@@ -1,2 +1,3 @@
 module edxJava {
+	requires junit;
 }
