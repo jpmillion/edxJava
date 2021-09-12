@@ -44,7 +44,13 @@ public class LinkedListUtils {
 	public static boolean containsSubsequence(LinkedList<Integer> one, LinkedList<Integer> two) {
 
 		/* IMPLEMENT THIS METHOD! */
+		int len1 = one.size();
+		int len2 = two.size() - 1;
 		
-		return true; // this line is here only so this code will compile if you don't modify it
+		for (int i = 0, j = 0; i < len1; i++) {
+			if (one.get(i) == two.get(j)) j++;
+			if (j == len2) return true;
+		}
+		return false; // this line is here only so this code will compile if you don't modify it
 	}
 }

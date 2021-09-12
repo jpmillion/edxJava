@@ -66,7 +66,16 @@ public class LinkedListUtilsTest {
 
 	@Test
 	public void testContainsSubsequence() {
-		fail("Not yet implemented");
+		LinkedList<Integer> one = new LinkedList<Integer>();
+		LinkedList<Integer> two = new LinkedList<Integer>();
+		
+		for (int i = 0; i < 15; i++) {
+			one.add(i);
+			if (i < 4 && i < 10) two.add(i);
+		}
+		
+		boolean actual = LinkedListUtils.containsSubsequence(one, two);
+		assertEquals("should return true", true, actual);
 	}
 
 }
