@@ -27,7 +27,41 @@ public class LinkedListUtilsTest {
 
 	@Test
 	public void testRemoveMaximumValues() {
-		fail("Not yet implemented");
+		LinkedList<String> expected = new LinkedList<String>();
+		for (int i = 0; i < 5; i++) {
+			expected.add(Integer.toString(i));
+		}
+		
+		LinkedList<String> actual = new LinkedList<String>();
+		for (int i = 0, j = 9; i < 10; i++) {
+			if (i % 2 == 0) {
+				actual.add(Integer.toString(9-j));
+			} else {
+				actual.add(Integer.toString(j));
+				j = 9 - i;
+			}
+		}
+		
+		LinkedListUtils.removeMaximumValues(actual, 5);
+		assertEquals("The lists should be equal", expected, actual);
+		
+		LinkedList<String> actual2 = new LinkedList<String>();
+		for (int i = 0, j = 9; i < 10; i++) {
+			if (i % 2 == 0) {
+				actual2.add(Integer.toString(9-j));
+				if (9 - j == 5) {
+					for (int k = 0; k < 10; k++) {
+						actual2.add(Integer.toString(9-j));
+					}
+				}
+			} else {
+				actual2.add(Integer.toString(j));
+				j = 9 - i;
+			}
+		}
+		
+		LinkedListUtils.removeMaximumValues(actual2, 5);
+		assertEquals("The lists should be equal", expected, actual2);
 	}
 
 	@Test
